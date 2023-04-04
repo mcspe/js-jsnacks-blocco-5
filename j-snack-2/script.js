@@ -37,7 +37,7 @@ const students = [
   },
   {
     firstName: 'Antonio',
-    lastName: 'BIanchi',
+    lastName: 'Bianchi',
     registrationNumber: 747106,
     grades: [25, 29, 30, 18, 25, 26]
   },
@@ -72,11 +72,20 @@ students.forEach(student => {
   studentsAverageGrades.push(obj);
 });
 
+studentsAverageGrades.sort((a, b) => {
+  let x = a.name.toLowerCase();
+  let y = b.name.toLowerCase();
+  if (x < y) {return -1;}
+  if (x > y) {return 1;}
+  return 0;
+});
+
+
 studentsContainer.innerHTML = (studentsAverageGrades.map( (student) => {
   const {name, registrationNumber, averageGrade, avatar} = student;
   const card = `
     <div class="card my-3 mx-auto">
-      <img src="${avatar} alt="${name}" class="card-img-top">
+      <img src="${avatar}?random=${Math.random()}" alt="${name}" class="card-img-top">
       <div class="card-header">${name}</div>
       <div class="card-text">
         <p>Matricola: ${registrationNumber}</p>
@@ -91,4 +100,3 @@ function getAverageGrade(grades){
   const average = grades.reduce((tot, grade) => tot + grade) / grades.length;
   return average;
 }
-console.log(students, studentsAverageGrades);
