@@ -53,7 +53,7 @@ console.log(usersBorderAge);
 const usersContainer = document.querySelector('.users-container');
 const borderAgeUsersContainer = document.querySelector('.border-age-users-container');
 
-usersContainer.innerHTML += (users.map( (user) => {
+usersContainer.innerHTML = (users.map( (user) => {
   const {firstName, lastName, age} = user;
   const card = `
     <div class="card p-2">
@@ -66,7 +66,7 @@ usersContainer.innerHTML += (users.map( (user) => {
   return card;
 }).join(''));
 
-borderAgeUsersContainer.innerHTML += (usersBorderAge.map( (user) => {
+borderAgeUsersContainer.innerHTML = (usersBorderAge.map( (user) => {
   const {firstName, lastName, age} = user;
   const card = `
     <div class="card p-2">
