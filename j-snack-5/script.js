@@ -33,7 +33,7 @@ const biciclette = [
   }
 ];
 
-const studentsContainer = document.querySelector('.bikes-container');
+const bikesContainer = document.querySelector('.bikes-container');
 
 const biciLeggera = biciclette.sort((a, b) =>{
   if (a.peso < b.peso) {return -1;}
@@ -41,10 +41,11 @@ const biciLeggera = biciclette.sort((a, b) =>{
   return 0;
 });
 
-studentsContainer.innerHTML = `
+bikesContainer.innerHTML = `
   <p>
     La bicicletta più leggera è ${biciLeggera[0].nome} con un peso di ${biciLeggera[0].peso}kg
   </p>
 `;
 
 console.log(biciLeggera[0]);
+
